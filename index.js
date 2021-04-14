@@ -18,8 +18,10 @@ Do the following:
    HINT: no function required
 */
 
-
-
+let votingAge = "18";
+let age = "16";
+if(age>= votingAge)
+console. log(true)
 /*
 Task 1b - Values
 
@@ -58,8 +60,8 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-    /*add your code here*/
+function multiply(a, b){
+    return a * b;
   }
 
 
@@ -74,10 +76,11 @@ Do the following:
    3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-    /*add your code here*/
-}
+function dogYears(humanYears){
+  return humanYears* 7;
 
+}
+console. log(dogYears(25));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -106,11 +109,34 @@ Use the hungryDog function and feeding requirements below to do the following:
     
   NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
-
-function hungryDog(/*add your code here*/){
-    /*add your code here*/
+function hungryDog(weight, age){
+  if (age >= 1){
+    if (weight <=5){
+      return weight *  .05; 
+    }
+    else if (weight >= 6 && weight <= 10){ 
+      return weight * .04;
+    }
+    else if (weight >= 11 && weight <= 15){
+      return weight * .03;
+    }
+    else if (weight > 15){
+      return weight * .02;
+    }
   }
-
+  else if (age < 1){ 
+    if (age >= .16 && age <= .33){ 
+      return weight * .1;
+    }
+    else if (age >= .33 && age <= .583){
+      return weight * .05;
+    }
+    else if ( age >= .583 && age <= 1){
+      return weight * .04;
+    }
+  }
+}
+console.log(hungryDog(15, 1)); 
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -134,41 +160,58 @@ Use the game function below to do the following:
   HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
-function game(user, computer){
-    /*add your code here*/
+
+  let pcChoice = Math.round(Math.random() * 3);
+  function computerOptions(){
+    if (pcChoice === 0){ 
+      return 'rock';
+    }
+    else if (pcChoice === 1){ 
+      return 'paper';
+    }
+    else { 
+      return 'scissors';
+    } 
+  }
+  function game(user, computer){ 
+    if ((user === 'paper' && computer === 'rock') || (user === 'rock' && computer === 'scissors') || (user === 'scissors' && computer === 'paper')){    
+    else if (user === computer){ 
+      return 'it\'s a tie';
+    }
+    else { 
+      return 'you lose!';
+    }
+  }
+  console.log(game('scissors', computerOptions(pcChoice))); 
+    
 }
   
   
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
-//Metric Converter 
-//Task 5a - KM to Miles 
-/*
-Using the miles function below do the following:
-  1. Receive a number of kilometers
-  2. Convert the number of kiolmeters received to miles
-  3. Return the number of miles
-*/
 
-function miles(/*add your code here*/){
-    /*add your code here*/
-  }
-
+function miles(km){ // invoking function "miles" and giving it a parameter of "km" for kilometers
+  return km * 0.621371; // we are returning km times 0.621371 because 1 kilometer = 0.621371 miles. this is the conversion.
+}
+console.log(miles(40)); //console logging the function "miles" and giving it 40 as the parameter for the number of kilometers.
 
 
 //Task 5b - Feet to CM
 /*
 Using the feet function below do the following:
-  1. Receive a number of cm
-  2. Convert the number of cm to feet
-  3. Return number of feet
+1. Receive a number of cm
+2. Convert the number of cm to feet
+3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-    /*add your code here*/
-  }
- 
+function feet(cm){ // invoking the function "feet" and giving it "cm" as the parameter for centimeters. 
+  return cm / 30.48; // returning cm divided by 30.48 because 1 foot = 30.48 cm. this is our conversion.
+}
+console.log(feet(32)); //console logging function "feet" and giving 32 for our parameter cm.
+
+
+
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -181,9 +224,12 @@ Using the annoyingSong function below do the following:
       "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-        /*add your code here*/
+function annoyingSong(num){ // invoking the function annoyingSong and giving it the parameter num for number.
+  for (let i = num; i > 0; i--){ // for loop with (statement 1; statement 2; statement 3) statement 1 is executed 1 time before the execution of the code block. statement 2 defines the condition for the executing code block. statement 3 is executed every time after the code block has been executed. we are declaring a variable "i" with let. we are letting i = our parameter num. i is greater than 0. i-- "--" means decrement, we are subtracting 1 each time.
+    return `${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${i - 1} bottles of soda on the wall`; // we are returning a string with template literals ${i} to input the number we log as our parameter, ${i-1} will be our number minus 1.
+    }
   }
+console.log(annoyingSong(10)); // console logging the function annoyingSong with 10 as the number for our parameter num. 
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -200,11 +246,23 @@ Using the grade function below do the following:
    60-69 should return 'you got a D'
    below should return 'you got an F'
 */
-  
-function grade(/*Your Code here */){
-  /*Your Code here */
+function grade(score){ // invoking function "grade" and giving it "score" as our parameter.
+  if (score >=90){ // if conditional if "score" our parameter is greater than or equal to 90 then return the string 'you got an A'
+    return `you got an A`;
   }
-  
+  else if (score >=80 && score <= 89){ // else if for a new conditional if our first is false, score is greater than or equal to 90 "&&" and score is less than or equal to 89 then return string 'you got a B'
+    return `you got a B`;
+  }
+  else if (score >=70 && score <= 79){ // same process
+    return `you got a C`;
+  }
+  else if (score >=60 && score <= 69){ // same process
+    return `you got a D`;
+  }
+  else return `you got an F`; // else since the string 'you got an F' would only be returned if all else is false.
+}
+console.log(grade(63)); // console logging our function "grade" and giving it the score "63" which would give us the string 'you got a D'
+
   
 
 /*💪💪💪💪💪💪💪💪💪💪 Stretch 💪💪💪💪💪💪💪💪💪💪*/
